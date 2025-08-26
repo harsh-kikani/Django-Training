@@ -4,9 +4,6 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def myapp2(request):
-    return HttpResponse('My app 2 page')
 
-
-def myapp2_me(request):
-    return HttpResponse('My app 2 Me page')
+def myapp2(req):
+    return HttpResponse(f'<h1>Hello App2 <h1/>')
