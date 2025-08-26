@@ -7,8 +7,7 @@ from django.http import HttpResponse
 
 def learn_django(req, **kwargs):
     status = kwargs.get('status','Not Allowed')
-    return HttpResponse(f'<h1>Hello Django {status}<h1/>')
+    return HttpResponse(f'<h1>Hello Django - app1<h1/>')
 
-def learn_python(request):
-    return HttpResponse('<h1>Hello python<h1/>')
+
 
