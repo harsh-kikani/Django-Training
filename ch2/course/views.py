@@ -15,10 +15,14 @@ from django.shortcuts import render
 
 # Example 1.1 - Variable
 
-def learn_django(req):
-    return render(req, 'course/django.html', context={'name': 'Django'})
+#def learn_django(req):
+#    return render(req, 'course/django.html', context={'name': 'Django'})
 
 
 # Example 1.2 - Variable
+#def learn_django(req):
+#    return render(req, 'course/django.html', context={'name': 'Django'})
+
+
 def learn_django(req):
-    return render(req, 'course/django.html', context={'name': 'Django'})
+    return render(req, 'course/django.html', {'nm': 'Django 5.x'})

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -9,6 +9,22 @@
     <h1>hello Django Template Language</h1>
     <h2>Example 1 - Variable</h2>
     <h3>name: {{name}}</h3>
+ 
+</body>
+</html> {% endcomment %}
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'course/css/style.css' %}">
+  <title>Django</title>
+</head>
+<body>
+    <h1>{{nm}} with static Files</h1>
+    
  
 </body>
 </html>
