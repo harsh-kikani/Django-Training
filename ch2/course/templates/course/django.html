@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 {% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,6 +48,10 @@
 
 
 {% block title %}Django{% endblock title %}
+
+{% block corecss %}
+ <link rel="stylesheet" href="{% static 'course/css/style.css' %}">
+{% endblock corecss %}
 
 {% block content%}
 <h1>Django Page</h1>
