@@ -24,5 +24,15 @@ from django.shortcuts import render
 #    return render(req, 'course/django.html', context={'name': 'Django'})
 
 
+#def learn_django(req):
+ #   return render(req, 'course/django.html', {'nm': 'Django 5.x'})
+ 
+ 
+ 
+ 
+ 
 def learn_django(req):
-    return render(req, 'course/django.html', {'nm': 'Django 5.x'})
+   return render(req, 'course/django.html')
+
+def learn_python(req):
+   return render(req, 'course/python.html')

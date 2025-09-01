@@ -1,3 +1,4 @@
+{% extends 'core/base.html' %}
 {% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,11 @@
 </body>
 </html> {% endcomment %}
 
-<!DOCTYPE html>
+
+
+
+
+{% comment %} <!DOCTYPE html>
 {% load static %}
 <html lang="en">
 <head>
@@ -29,9 +34,22 @@
 
     <img src="{% static 'course/images/pic1.png' %}" alt="aws" width="200px">
     <img src="{% get_static_prefix %}course/images/pic1.png" alt="aws" width="300px">
-    
+
     <form action="" >
       <input type="button" value="Click Me" onclick="disp()" />
     </form>
 </body>
-</html>
+</html> {% endcomment %}
+
+
+
+
+
+
+{% block title %}Django{% endblock title %}
+
+{% block content%}
+<h1>Django Page</h1>
+{% endblock content%}
+
+{% block footer %} {{block.super}}this is Django Footer {% endblock footer %}
