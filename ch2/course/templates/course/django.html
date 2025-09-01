@@ -1,5 +1,9 @@
 {% extends 'core/base.html' %}
 {% load static %}
+
+
+
+
 {% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +20,7 @@
 </html> {% endcomment %}
 
 
-
+{% comment %} ----------------------------Template------------------------------ {% endcomment %}
 
 
 {% comment %} <!DOCTYPE html>
@@ -45,9 +49,11 @@
 
 
 
+{% comment %} -----------------------------Template using static files--------------------------- {% endcomment %}
 
 
-{% block title %}Django{% endblock title %}
+
+{% comment %} {% block title %}Django{% endblock title %}
 
 {% block corecss %}
  <link rel="stylesheet" href="{% static 'course/css/style.css' %}">
@@ -57,4 +63,15 @@
 <h1>Django Page</h1>
 {% endblock content%}
 
-{% block footer %} {{block.super}}this is Django Footer {% endblock footer %}
+{% block footer %} {{block.super}}this is Django Footer {% endblock footer %} {% endcomment %}
+
+
+
+
+{% block title %}Django{% endblock title %}
+
+{% block content%}
+<h1>Django Page</h1>
+{% endblock content%}
+
+{% block footer %}this is Django Footer {% endblock footer %}
