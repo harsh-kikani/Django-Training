@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+{% extends 'core/base.html' %}
+{% load static %}
+
+
+
+
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +12,66 @@
   <title>Document</title>
 </head>
 <body>
-    <h1>hello Django from Course App</h1>
-
+    <h1>hello Django Template Language</h1>
+    <h2>Example 1 - Variable</h2>
+    <h3>name: {{name}}</h3>
+ 
 </body>
-</html>
+</html> {% endcomment %}
+
+
+{% comment %} ----------------------------Template------------------------------ {% endcomment %}
+
+
+{% comment %} <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'course/css/style.css' %}">
+  <title>Django</title>
+</head>
+<body>
+  <script src="{% static 'course/js/script.js' %}"></script>
+
+    <h1>{{nm}} with static Files</h1>
+
+    <img src="{% static 'course/images/pic1.png' %}" alt="aws" width="200px">
+    <img src="{% get_static_prefix %}course/images/pic1.png" alt="aws" width="300px">
+
+    <form action="" >
+      <input type="button" value="Click Me" onclick="disp()" />
+    </form>
+</body>
+</html> {% endcomment %}
+
+
+
+
+{% comment %} -----------------------------Template using static files--------------------------- {% endcomment %}
+
+
+
+{% comment %} {% block title %}Django{% endblock title %}
+
+{% block corecss %}
+ <link rel="stylesheet" href="{% static 'course/css/style.css' %}">
+{% endblock corecss %}
+
+{% block content%}
+<h1>Django Page</h1>
+{% endblock content%}
+
+{% block footer %} {{block.super}}this is Django Footer {% endblock footer %} {% endcomment %}
+
+
+
+
+{% block title %}Django{% endblock title %}
+
+{% block content%}
+<h1>Django Page</h1>
+{% endblock content%}
+
+{% block footer %}this is Django Footer {% endblock footer %}
