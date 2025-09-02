@@ -8,3 +8,5 @@ class Profile(models.Model):
     city = models.CharField(max_length=70)
     roll = models.IntegerField()
     state = models.CharField(max_length=70)
+    comment = models.CharField(max_length=70,
+    default='nothing')
