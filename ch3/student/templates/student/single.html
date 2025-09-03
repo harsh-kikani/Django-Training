@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>document</title>
+</head>
+<body>
+    <h1>Single student data</h1>
+    {% if students %}
+        <h1>student</h1>
+        <h3>{{students.name}} - {{students.email}} - {{students.city}} - {{students.roll}} - {{students.state}} - {{students.comment}}</h3>
+    {% else %}
+        <h1>No Data</h1>
+    {% endif %}
+</body>
+</html>
