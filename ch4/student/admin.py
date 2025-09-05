@@ -1,5 +1,5 @@
-# from django.contrib import admin
-# from student.models import Profile, Result
+from django.contrib import admin
+from student.models import Profile
 
 # # Register your models here.
 
@@ -14,4 +14,8 @@
 # class ResultAdmin(admin.ModelAdmin):
 #     list_display = ('id', 'stu_class')
     
+
+@admin.register(Profile)
+class ProfileAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'email', 'password')
 
