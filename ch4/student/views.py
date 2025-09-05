@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from student.forms import Registration, Login, DemoForm
 from django.http import HttpResponseRedirect
-
+from student.models import Profile
 # Create your views here.
 
 
@@ -9,22 +9,57 @@ from django.http import HttpResponseRedirect
 def registration(request):
     if request.method == 'POST':
         form = Registration(request.POST)
+        
         if form.is_valid():
-            name = form.cleaned_data['Name']
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
-            print('Name:', name)
-            print('Email:', email)
-            print('Password:', password)
-            return HttpResponseRedirect('/student/success/')
+            nm = form.cleaned_data['name']
+            em = form.cleaned_data['email']
+            pw = form.cleaned_data['password']
+            cpw = form.cleaned_data['confirm_password']
+            print('name:', nm)
+            print('Email:', em)
+            print('Password:', pw)
+            print('Confirm_Password:', cpw)
+           
+            
+            
+            # Save Data into Database
+            user = Profile(name=nm, email=em, password=pw)
+            user.save()
+            
+            #Update Data into Database
+            # user = Profile(id=1, name=nm, email=em, password=pw)
+            # user.save()
+            
+            # Delete Data into Database
+            # user = Profile(id=1)
+            # user.delete()
+
+
+#-----------------save data second method-------------------------------------
+
+# def registration(request):
+#     if request.method == 'POST':
+#         obj = Profile.object.get(pk=2)
+#         form = Registration(request.POST, instance=obj)
+#         if form.is_valid():
+#             form.save()
+        
+        
+            return HttpResponseRedirect('/student/register/')
+            # return HttpResponseRedirect('/student/success/')
             
     else:    
         form = Registration()
     # fm = Registration(field_order=['email', 'city'])
     return render(request, 'student/registration.html', {'form': form})
 
+
+
 def reg_success(request):
     return render(request, 'student/success.html')
+
+
+
 
 def login(req):
     fm = Login()
