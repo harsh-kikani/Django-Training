@@ -28,8 +28,14 @@ from django.db import models
 
 #Create your models here.
 
+# class Profile(models.Model):
+#     name = models.CharField(max_length=20, blank=True)
+#     email = models.EmailField(max_length=255)
+#     password = models.CharField(max_length=20)
+
 class Profile(models.Model):
-    name = models.CharField(max_length=20, blank=True)
-    email = models.EmailField(max_length=255)
-    password = models.CharField(max_length=20)
+    student_name = models.CharField(max_length=100, blank=True, null=True)
+    teacher_name = models.CharField(max_length=100, blank=True, null=True)
+    email = models.EmailField()
+    password = models.CharField(max_length=100)
     
