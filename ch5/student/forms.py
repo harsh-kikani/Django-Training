@@ -21,6 +21,12 @@ class ProfileForm(forms.ModelForm):
         choices=GENDER_CHOICES,
         widget=forms.RadioSelect,
     )
+    job_city = forms.MultipleChoiceField(
+        choices=JOB_CITY_CHOICE,
+        widget=forms.CheckboxSelectMultiple,
+        label="Preferred Job Cities",
+        help_text="select one or more cities where you prefer to work"
+    )
     class Meta:
         model = Profile
         fields = [
@@ -48,6 +54,10 @@ class ProfileForm(forms.ModelForm):
             'pin': forms.NumberInput(attrs={'class': 'form-control',
             'placeholder':'6-digit PIN code'}),
             'state': forms.Select(attrs={'class': 'form-select'}),
+            'mobile': forms.TextInput(attrs={'class': 'form-control',
+            'placeholder':'10-digit mobile number'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control',
+            'placeholder':'Email Address'}),
                                           
         }
     
