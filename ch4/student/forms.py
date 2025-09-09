@@ -167,24 +167,36 @@ class Login(forms.Form):
 
 
 
+# class Registration(forms.ModelForm):
+#     name = forms.CharField(max_length=50, required=False)
+#     confirm_password = forms.CharField()
+#     class Meta:
+#         model = Profile
+#         #fields = ['name', 'email', 'password']
+#         fields = '__all__'
+        
+#         labels = {
+#             'name': 'Enter Name', 
+#             'email': 'Enter Email'
+#         }
+#         error_messages = {
+#             'email': {'required': 'Email is required'}
+#         }
+#         widgets = {
+#             'password': forms.PasswordInput(attrs={'class': 'pwdclass'}),
+#             'name': forms.TimeInput(attrs={'class':'myclass','placeholder': 'Enter your name'}),
+#             'confirm_password': forms.PasswordInput(attrs={'class': 'cpwclass'})
+#         }
+
+
+
 class Registration(forms.ModelForm):
-    name = forms.CharField(max_length=50, required=False)
-    confirm_password = forms.CharField()
     class Meta:
         model = Profile
-        #fields = ['name', 'email', 'password']
-        fields = '__all__'
+        fields = ['student_name', 'email', 'password']
+       
         
-        labels = {
-            'name': 'Enter Name', 
-            'email': 'Enter Email'
-        }
-        error_messages = {
-            'email': {'required': 'Email is required'}
-        }
-        widgets = {
-            'password': forms.PasswordInput(attrs={'class': 'pwdclass'}),
-            'name': forms.TimeInput(attrs={'class':'myclass','placeholder': 'Enter your name'}),
-            'confirm_password': forms.PasswordInput(attrs={'class': 'cpwclass'})
-        }
+class TeacherRegistration(Registration):
+    class Meta(Registration.Meta):
+        fields = ['teacher_name', 'email', 'password']
         
