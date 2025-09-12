@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from student.forms import ProfileForm
 from student.models import Profile
 
@@ -11,5 +11,18 @@ from student.models import Profile
 
 
 def home(request):
-    form = ProfileForm()
-    return render(request, 'student/home.html', {'form':form})
+    candidates = Profile.objects.all()
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:       
+        form = ProfileForm()
+    return render(request, 'student/home.html', {'form':form,
+    'candidates':candidates})
+    
+def candidate_detail(request, pk):
+    candidate = Profile.objects.get(pk=pk)
+    return render(request, 'student/candidate.html',
+    {'candidate':candidate})
