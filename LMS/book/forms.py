@@ -6,6 +6,9 @@ class BookForm(forms.ModelForm):
         model = Book
         fields = ['title', 'isbn', 'category', 'author',]
         
+class edit_book(forms.Form):
+    pass
+        
         
 class AuthorForm(forms.ModelForm):
     class Meta:
@@ -17,5 +20,13 @@ class MemberForm(forms.ModelForm):
         model = Member
         fields = ['name', 'email', 'join_date',]
         
-class BorrowForm(forms.ModelForm):
-    pass
+class BorrowForm(forms.Form):
+    book_name = forms.CharField()
+    member_name = forms.CharField()
+    issue_date = forms.DateField()
+    
+    
+class ReturnForm(forms.Form):
+    book_name = forms.CharField()
+    member_name = forms.CharField()
+    return_date = forms.DateField()
